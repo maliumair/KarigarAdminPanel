@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Karigar</title>
+    <%- include('partials/head'); %>
+</head>
+
+<body>
+    <%- include('partials/nav'); %>
+        <div class="container">
+            <div class="row justify-content-center mt-5 align-items-center">
+                <div class="col-md-5 d-none d-md-block">    
+                    <img src="/static/images/plumber.png" width="70%" alt="Handyman">
+                </div>
+                <div class="col-md-7 col-10">
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <h1 id="brand" class="text-center logo">Karigar</h1>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <h3 class="text-center">Register</h3>
+
+                        </div>
+                    </div>
+                    <div class="row justify-content-center mt-2">
+                        <div class="col-12">
+                            <form id="register-form" action='' method="post" novalidate="">
+                                <input type="hidden" id="role" name="role" value="user">
+                                <div class="form-row">
+                                    <div class="col-sm-6 mb-3">
+                                        <label for="f_name">First name</label>
+                                        <input type="text" class="form-control" id="f_name" name="f_name" required>
+                                        <div class="invalid-feedback">
+                                            Please Enter a valid first name
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 mb-3">
+                                        <label for="l_name">Last name</label>
+                                        <input type="text" class="form-control" id="l_name" name="l_name" required>
+                                        <div class="invalid-feedback">
+                                            Please enter a valid last name.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-sm-6 mb-3">
+                                        <label for="email">Email</label>
+                                        <input type="email" class="form-control" id="email" name="email" required>
+                                        <div class="invalid-feedback">
+                                            Please select a valid Email Address.
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 mb-3">
+                                        <label for="phone">Phone</label>
+                                        <input type="tel" class="form-control" id="phone" name="phone" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid Phone Number.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-sm-6 mb-3">
+                                        <label for="username">Username</label>
+                                        <input type="text" class="form-control" id="username" name="username" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid Username.
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 mb-3">
+                                        <label for="passwrod">Password</label>
+                                        <input class="form-control" type="password" id="password" name="password"
+                                            required>
+                                        <div class="invalid-feedback">
+                                            You must enter a password.
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <button class="btn btn-primary form-control" type="submit" name="submit"
+                                    id="submit">Register</button>
+                            </form>
+                            <div class="row justify-content-center mt-2">
+                                <div class="col-12 justify-content-center">
+                                    <p id="error" class="text-center text-dark"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include('partials/footer'); %>
+</body>
+
+</html>

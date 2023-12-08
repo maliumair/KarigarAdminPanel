@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Karigar</title>
+    <%- include('partials/head'); %>
+</head>
+
+<body>
+    <%- include('partials/nav'); %>
+        <div class="container">
+            <div class="row justify-content-center mt-5 align-items-center">
+                <div class="col-md-6 d-none d-md-block">
+                    <img src="/static/images/plumber.png" width="70%" alt="Handyman">
+                </div>
+                <div class="col-md-6 col-sm-9 col-12">
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <h1 id="brand" class="text-center logo">Karigar</h1>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <h3 class="text-center">Login</h3>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <form id="login-form" action='/auth/login' method="post" novalidate="">
+                                <div class="form-row">
+                                    <div class="col-12 mb-3">
+                                        <label for="username">Username</label>
+                                        <input type="text" class="form-control" id="username" name="username" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid Username.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-12">
+                                        <label for="passwrod">Password</label>
+                                        <input class="form-control" type="password" id="password" name="password"
+                                            required>
+                                        <div class="invalid-feedback">
+                                            You must enter a password.
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <button class="btn btn-primary form-control" type="submit" name="submit"
+                                    id="submit">Login</button>
+                            </form>
+                            <div class="row justify-content-center mt-2">
+                                <div class="col-12 justify-content-center">
+                                    <p id="error" class="text-center"><%=error%></p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-2">
+                <div class="col-md-6 col-12">
+
+                </div>
+            </div>
+        </div>
+        <%- include('partials/footer'); %>
+</body>
+
+</html>

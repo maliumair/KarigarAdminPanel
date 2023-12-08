@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Karigar</title>
+    <%- include('partials/head'); %>
+</head>
+
+<body>
+    <%- include('partials/nav_admin'); %>
+        <div class="container main p-5 mt-5 mb-5 primary">
+            <div class="row mt-2 justify-content-center">
+                <h1 id="page_heading">Services</h1>
+            </div>
+            <div class="row justify-content-end">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#add-modal">+ Add Service</button>
+            </div>
+            <div class="row mt-2 justify-content-center" id="services-container">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class="secondary text-light">
+                            <tr class="text-center">
+                                <th scope="col">#</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Tag</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Price for</th>
+                                <th scope="col">Icon</th>
+                                <th scope="col">Created at</th>
+                                <th scope="col">Last Updated at</th>
+                                <th scope="col">Operations</th>
+                            </tr>
+                        </thead>
+                        <tbody id="services-table-body">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="delete-modal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+            aria-labelledby="deletemodallalbel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deletelabel">Delete Service</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div id="delete-modal-body" class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button id="delete" type="button" class="btn btn-danger" data-dismiss="modal">Yes</button>
+                        <button type="button" class="btn" data-dismiss="modal" aria-label="Close">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="add-modal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+            aria-labelledby="addmodallabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addlabel">Add A New Service</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div id="add-modal-body" class="modal-body">
+                        <div class="row justify-content-center mt-2">
+                            <div class="col-12">
+                                <form id="add-form" action='' method="post" novalidate="">
+                                    <div class="form-row">
+                                        <div class="col-sm-12 mb-3">
+                                            <label for="title">Title</label>
+                                            <input type="text" class="form-control" id="title" name="title" required>
+                                            <div class="invalid-feedback">
+                                                Please Enter a valid Title
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-sm-12 mb-3">
+                                            <label for="tag">Tag</label>
+                                            <input type="text" class="form-control" id="tag" name="tag" required
+                                                readonly>
+                                            <div class="invalid-feedback">
+                                                Please enter a valid Tag.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-sm-12 mb-3">
+                                            <label for="icon">Icon</label>
+                                            <input type="text" class="form-control" id="icon" name="icon" required>
+                                            <div class="invalid-feedback">
+                                                Please select a valid Icon.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-sm-12 mb-3">
+                                            <label for="price">Price</label>
+                                            <input type="number" class="form-control" id="price" name="price" required>
+                                            <div class="invalid-feedback">
+                                                Please Enter a valid Price.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-sm-12 mb-3">
+                                            <label for="price_for">Price for</label>
+                                            <input type="text" class="form-control" id="price_for" name="price-for" required>
+                                            <div class="invalid-feedback">
+                                                Please Enter a valid Price For.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-sm-12 mb-3">
+                                            <label for="category">Category</label>
+                                            <select id="category" name="category" class="form-control" required>
+
+                                            </select>
+                                            <div class="invalid-feedback">
+                                                Please Select a category.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <button class="btn btn-primary form-control" type="submit" name="submit" id="add">+
+                                        Add</button>
+                                </form>
+                                <div class="row justify-content-center mt-2">
+                                    <div class="col-12 justify-content-center">
+                                        <p id="error1" class="error text-center text-dark"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="edit-modal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+            aria-labelledby="editmodallabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deletelabel">Edit Service</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div id="add-modal-body" class="modal-body">
+                        <div class="row justify-content-center mt-2">
+                            <div class="col-12">
+                                <form id="edit-form" action='' method="post" novalidate="">
+                                    <input type="hidden" id="id" name="id" value="">
+                                    <div class="form-row">
+                                        <div class="col-sm-12 mb-3">
+                                            <label for="title">Title</label>
+                                            <input type="text" class="form-control" id="title_edit" name="title"
+                                                required>
+                                            <div class="invalid-feedback">
+                                                Please Enter a valid Title
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-sm-12 mb-3">
+                                            <label for="tag">Tag</label>
+                                            <input type="text" class="form-control" id="tag_edit" name="tag" required
+                                                readonly>
+                                            <div class="invalid-feedback">
+                                                Please enter a valid Tag.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-sm-12 mb-3">
+                                            <label for="icon">Icon (Fontawesome)</label>
+                                            <input type="text" class="form-control" id="icon_edit" name="icon" required>
+                                            <div class="invalid-feedback">
+                                                Please select a valid Email Address.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-sm-12 mb-3">
+                                            <label for="price_edit">Price</label>
+                                            <input type="number" class="form-control" id="price_edit" name="price_edit" required>
+                                            <div class="invalid-feedback">
+                                                Please Enter a valid Price.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-sm-12 mb-3">
+                                            <label for="price_for_edit">Price for</label>
+                                            <input type="text" class="form-control" id="price_for_edit" name="price-for_edit" required>
+                                            <div class="invalid-feedback">
+                                                Please Enter a valid Price For.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <button class="btn btn-primary form-control" type="submit" name="submit"
+                                        id="update">Update</button>
+                                </form>
+                                <div class="row justify-content-center mt-2">
+                                    <div class="col-12 justify-content-center">
+                                        <p id="error2" class="error text-center text-dark"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include('partials/footer'); %>
+            <script type="text/javascript" src="/static/js/services.js"></script>
+</body>
+
+</html>

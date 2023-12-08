@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Bruno+Ace+SC&family=Kanit:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&family=Sigmar&family=Unbounded:wght@500;700&display=swap');
+
+body {
+    background-color: #fff;
+}
+
+.primary {
+    background-color: #F6F6F6;
+}
+
+.secondary {
+    background-color: #1E1926;
+}
+
+.text-light {
+    color: #FBF8FF;
+}
+
+.text-dark {
+    color: #1E1926;
+}
+
+.text-accent {
+    color: #7c4dff;
+}
+
+.text-subtitle {
+    color: #727070;
+}
+
+.accent {
+    background-color: #6832fd;
+}
+
+.btn-primary {
+    background-color: #6832fd;
+    outline: #7c4dff;
+    border: 1px solid #6832fd;
+}
+
+.btn-primary:hover {
+    background-color: #1E1926;
+    outline: #1E1926;
+    border: 1px solid #1E1926;
+}
+
+.btn-primary:focus {
+    background-color: #1E1926;
+    outline: #1E1926;
+    border: 1px solid #1E1926;
+}
+
+.btn-primary:active {
+    background-color: #1E1926;
+    outline: #1E1926;
+    border: 1px solid #1E1926;
+}
+
+.logo {
+    font-family: 'Bruno Ace SC';
+}
+
+#page_heading,
+#page_subheading {
+    font-family: 'Kanit';
+}
+
+
+.container {
+    font-family: 'Roboto';
+}
+
+.main {
+    min-height: 100vh;
+    border-radius: 20px;
+}
+
+h1 {
+    font-weight: 700;
+}
+
+#error, #error1, #error2, .error {
+    color: rgb(211, 14, 14);
+}
+
+.card.category:hover {
+    background-color: #1E1926;
+}
+
+#jumbotron {
+    border-radius: 0;
+
+}
+
+.table {
+    /* width: 90%; */
+    border-top: 0;
+    border-bottom: 1px;
+    border-right: 1px;
+    border-left: 1px;
+    border-color: #7c4dff;
+    border-style: solid;
+}
+
+.table td,
+.table th {
+    white-space: nowrap;
+    width: 1%;
+}
+
+.delete-icon {
+    color: red;
+    cursor: pointer;
+}
+
+.edit-icon {
+    color: rgb(33, 18, 241);
+    cursor: pointer;
+    margin-left: 20px;
+}
